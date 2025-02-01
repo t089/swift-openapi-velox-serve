@@ -17,6 +17,10 @@ public final class RouterTransport :  ServerTransport {
         self.router = router
     }
 
+    public func makeHandler() -> any Handler {
+        self.router
+    }
+
     public func register(
         _ handler: @escaping @Sendable (HTTPRequest, HTTPBody?, ServerRequestMetadata) async throws -> (
             HTTPResponse, HTTPBody?
